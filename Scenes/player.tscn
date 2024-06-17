@@ -1,0 +1,34 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/player/png/spritesheet-final.png" type="Texture" id=1]
+[ext_resource path="res://animations/walk_front.tres" type="Animation" id=2]
+[ext_resource path="res://animations/walk_back.tres" type="Animation" id=3]
+[ext_resource path="res://animations/walk_right.tres" type="Animation" id=4]
+[ext_resource path="res://animations/walk_left.tres" type="Animation" id=5]
+[ext_resource path="res://Scripts/player.gd" type="Script" id=6]
+[ext_resource path="res://animations/idle.tres" type="Animation" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.29303, 9.74051 )
+
+[node name="player" type="KinematicBody2D"]
+position = Vector2( 530.457, 303.928 )
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 4
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/idle = ExtResource( 7 )
+anims/walk_back = ExtResource( 3 )
+anims/walk_front = ExtResource( 2 )
+anims/walk_left = ExtResource( 5 )
+anims/walk_right = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.0625, 2.4375 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0

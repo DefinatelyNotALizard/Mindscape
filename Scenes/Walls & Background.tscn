@@ -1,0 +1,137 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/background/png/black.png" type="Texture" id=1]
+[ext_resource path="res://assets/walls/png/wall.png" type="Texture" id=2]
+
+[sub_resource type="LineShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 103.239, 2.04652 )
+
+[node name="Walls & Background" type="Node2D"]
+
+[node name="Wall left" type="StaticBody2D" parent="."]
+position = Vector2( -125, 0 )
+rotation = 1.5708
+
+[node name="left wall" type="CollisionShape2D" parent="Wall left"]
+visible = false
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="wall" type="Sprite" parent="Wall left"]
+position = Vector2( -17.4991, 3 )
+scale = Vector2( 4.79174, 1 )
+texture = ExtResource( 2 )
+
+[node name="Wall left2" type="StaticBody2D" parent="."]
+position = Vector2( -125, 0 )
+rotation = 1.5708
+
+[node name="left wall" type="CollisionShape2D" parent="Wall left2"]
+visible = false
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="wall" type="Sprite" parent="Wall left2"]
+position = Vector2( 58.0028, 3 )
+scale = Vector2( 1.41615, 1 )
+texture = ExtResource( 2 )
+
+[node name="Wall right" type="StaticBody2D" parent="."]
+position = Vector2( 125, 0 )
+rotation = -1.5708
+
+[node name="left wall" type="CollisionShape2D" parent="Wall right"]
+visible = false
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="wall" type="Sprite" parent="Wall right"]
+position = Vector2( 17.5012, 1.00004 )
+rotation = -3.14159
+scale = Vector2( 4.79157, 1 )
+texture = ExtResource( 2 )
+
+[node name="Wall right2" type="StaticBody2D" parent="."]
+position = Vector2( 125, 0 )
+rotation = -1.5708
+
+[node name="left wall" type="CollisionShape2D" parent="Wall right2"]
+visible = false
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="wall" type="Sprite" parent="Wall right2"]
+position = Vector2( -57.9945, 0.999849 )
+rotation = -3.14159
+scale = Vector2( 1.41717, 1 )
+texture = ExtResource( 2 )
+
+[node name="Wall top" type="StaticBody2D" parent="."]
+position = Vector2( 0, -75 )
+rotation = 3.14159
+scale = Vector2( 1.25, 1 )
+
+[node name="wall" type="Sprite" parent="Wall top"]
+position = Vector2( 0, -2 )
+rotation = -3.14159
+scale = Vector2( 8.5, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall top"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="Wall bottom" type="StaticBody2D" parent="."]
+position = Vector2( 0, 75 )
+scale = Vector2( 2, 1 )
+
+[node name="wall2" type="Sprite" parent="Wall bottom"]
+rotation = 1.30337e-07
+scale = Vector2( 5.3, 1 )
+texture = ExtResource( 2 )
+
+[node name="left wall" type="CollisionShape2D" parent="Wall bottom"]
+visible = false
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="Wall bottom2" type="StaticBody2D" parent="."]
+position = Vector2( 0, 40 )
+scale = Vector2( 2, 1 )
+
+[node name="wall2" type="Sprite" parent="Wall bottom2"]
+rotation = 1.30337e-07
+scale = Vector2( 5.3, 1 )
+texture = ExtResource( 2 )
+
+[node name="left wall" type="CollisionShape2D" parent="Wall bottom2"]
+visible = false
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="Wall bottom3" type="StaticBody2D" parent="."]
+position = Vector2( 0, 43 )
+scale = Vector2( 2, 1 )
+
+[node name="wall2" type="Sprite" parent="Wall bottom3"]
+rotation = 1.30337e-07
+scale = Vector2( 5.3, 1 )
+texture = ExtResource( 2 )
+
+[node name="left wall" type="CollisionShape2D" parent="Wall bottom3"]
+visible = false
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+one_way_collision_margin = 0.0
+
+[node name="background" type="StaticBody2D" parent="."]
+z_index = -1
+
+[node name="black" type="Sprite" parent="background"]
+position = Vector2( 0, 0.623851 )
+scale = Vector2( 11, 6.49125 )
+texture = ExtResource( 1 )
