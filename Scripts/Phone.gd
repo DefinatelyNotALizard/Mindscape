@@ -33,8 +33,9 @@ func _ready():
 
 func _physics_process(delta):
 	if Input.is_action_pressed("test"):
-		state = 1
-		ring()
+		if not state == 1:
+			state = 1
+			ring()
 		
 
 	
