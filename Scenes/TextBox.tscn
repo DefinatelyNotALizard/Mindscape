@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Fonts/Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/TextBox.gd" type="Script" id=3]
+[ext_resource path="res://assets/Sound/Text/morse.wav" type="AudioStream" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="TextBox" type="CanvasLayer"]
+offset = Vector2( 900, 565 )
+scale = Vector2( 3.7, 3.7 )
+transform = Transform2D( 3.7, 0, 0, 3.7, 900, 565 )
+script = ExtResource( 3 )
+
+[node name="TextBoxContainer" type="MarginContainer" parent="."]
+anchor_left = -0.123047
+anchor_top = 0.07
+anchor_right = 0.139648
+anchor_bottom = 0.125
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel" type="Panel" parent="TextBoxContainer"]
+margin_right = 268.0
+margin_bottom = 33.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBoxContainer"]
+margin_right = 268.0
+margin_bottom = 33.0
+custom_constants/margin_right = 2
+custom_constants/margin_top = 2
+custom_constants/margin_left = 2
+custom_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextBoxContainer/MarginContainer"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 266.0
+margin_bottom = 31.0
+
+[node name="Text" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
+margin_right = 245.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "Welcome Grub, your adventure begins here, this will not be easy (btw this is placeholder text), your quest will have many dangers and pitfalls, also watch out for the bathroom on nthe third floor there's no toilet paper"
+autowrap = true
+clip_text = true
+
+[node name="V" type="Label" parent="TextBoxContainer/MarginContainer/HBoxContainer"]
+margin_left = 249.0
+margin_top = 6.0
+margin_right = 264.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 15, 0 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0.980392, 0, 1 )
+text = "V"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
