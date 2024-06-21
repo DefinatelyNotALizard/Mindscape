@@ -5,7 +5,6 @@ var speed = 100
 
 
 var velocity = Vector2()
-onready var sprite = get_node("player")
 
 func _physics_process(delta: float) -> void:
 	#left and right

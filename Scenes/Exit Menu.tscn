@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Fonts/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/Walls & Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/selector.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/exitSelector.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Exit Menu.gd" type="Script" id=5]
+
+[node name="ExitMenu" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Save & Quit\?" type="Label" parent="."]
+margin_left = -31.85
+margin_top = 44.0
+margin_right = 59.15
+margin_bottom = 60.0
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = ExtResource( 1 )
+text = "Save and quit?"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = -25.25
+margin_top = 58.0
+margin_right = 46.75
+margin_bottom = 80.0
+rect_scale = Vector2( 0.7, 0.7 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="Button" parent="HBoxContainer"]
+margin_right = 34.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 34, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "Yes"
+flat = true
+
+[node name="No" type="Button" parent="HBoxContainer"]
+margin_left = 38.0
+margin_right = 72.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 34, 0 )
+custom_fonts/font = ExtResource( 1 )
+text = "No"
+flat = true
+
+[node name="Walls & Background" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="selector" parent="." instance=ExtResource( 3 )]
+position = Vector2( -25.889, 44.8795 )
+scale = Vector2( 0.07, 0.9 )
+z_index = -1
+script = ExtResource( 4 )

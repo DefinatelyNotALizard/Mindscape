@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/panels/png/selected.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/StartSelector.gd" type="Script" id=2]
+
+[node name="selector" type="KinematicBody2D"]
+position = Vector2( 0, 10 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 179.643, 22.5 )
+scale = Vector2( 15.1667, 1.92262 )
+texture = ExtResource( 1 )

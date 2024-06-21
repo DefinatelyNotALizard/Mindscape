@@ -9,7 +9,7 @@
 [ext_resource path="res://animations/idle.tres" type="Animation" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.29303, 9.74051 )
+extents = Vector2( 5.06232, 9.74051 )
 
 [node name="player" type="KinematicBody2D"]
 position = Vector2( 530.457, 303.928 )
@@ -29,6 +29,6 @@ anims/walk_right = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( 0.0625, 2.4375 )
+position = Vector2( -0.0311279, 2.4375 )
 shape = SubResource( 1 )
 one_way_collision_margin = 0.0

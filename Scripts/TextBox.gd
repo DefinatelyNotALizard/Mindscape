@@ -16,9 +16,9 @@ var current_state = State.READY
 
 
 func _ready():
-	print('start READY')
+
 	hide_textbox()
-	add_text('Welcome Grub, your adventure begins here, this will not be easy (btw this is placeholder text), your quest will have many dangers and pitfalls, also watch out for the bathroom on nthe third floor there\'s no toilet paper')
+	#add_text('Welcome Grub, your adventure begins here, this will not be easy (btw this is placeholder text)')
 
 func _process(delta):
 	match current_state:
