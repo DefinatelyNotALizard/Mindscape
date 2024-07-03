@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Phone.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://assets/Objects/PC desk/png/PCdeskRight.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/PC.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Exit Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Inventory.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Inventory.gd" type="Script" id=13]
+[ext_resource path="res://assets/Objects/Vent/png/ventSheet.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.18195, 4.20098 )
@@ -18,23 +21,26 @@ extents = Vector2( 9.18195, 4.20098 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 20.1514, 1.13784 )
 
+[sub_resource type="Animation" id=3]
+resource_name = "Closed"
+
 [node name="Main" type="Node2D"]
 
+[node name="Walls & Background" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1.54339, 0.280617 )
+
 [node name="Camera" parent="." instance=ExtResource( 4 )]
-visible = true
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 z_index = 2
 
-[node name="Walls & Background" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1.54339, 0.280617 )
-
 [node name="Phone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 51.906, -47.5 )
 z_index = 1
 
-[node name="TextBox" parent="." instance=ExtResource( 5 )]
+[node name="PC" parent="." instance=ExtResource( 10 )]
+position = Vector2( -0.99971, -47.5806 )
 
 [node name="Lines" type="StaticBody2D" parent="."]
 
@@ -69,10 +75,26 @@ position = Vector2( 10, 1 )
 texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PC desk"]
+visible = false
 position = Vector2( 0, -3 )
 shape = SubResource( 2 )
 
-[node name="PC" parent="." instance=ExtResource( 10 )]
-position = Vector2( -0.99971, -47.5806 )
+[node name="Vent" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Vent"]
+position = Vector2( -121.376, 3.51693 )
+scale = Vector2( 0.195462, 0.951126 )
+texture = ExtResource( 14 )
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vent"]
+anims/Closed = SubResource( 3 )
+
+[node name="TextBox" parent="." instance=ExtResource( 5 )]
 
 [node name="Exit Menu" parent="." instance=ExtResource( 11 )]
+visible = false
+
+[node name="Inventory" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2.5, 58.5 )
+script = ExtResource( 13 )
