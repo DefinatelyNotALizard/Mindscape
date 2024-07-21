@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var Indexposition = 0
+var Indexposition = 1
 
 
 
@@ -24,6 +24,7 @@ func _process(delta):
 	elif Input.is_action_just_released("ui_cancel"):
 		if self.visible == false:
 			self.visible = true
+			Indexposition = 0
 		else:
 			pass
 	
