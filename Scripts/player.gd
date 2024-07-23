@@ -6,7 +6,7 @@ var speed = 100
 
 var velocity = Vector2()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#left and right
 	velocity.x = 0
 	velocity.y = 0
@@ -35,16 +35,11 @@ func _physics_process(delta: float) -> void:
 	velocity = move_and_slide(velocity, Vector2.UP)
 
 
-	
-
+func _process(delta):
+	if Input.is_action_pressed("interact") and Globals.nearby_object != 'void':
+		Globals.interacting = 1
 		
 func _ready():
 	$AnimationPlayer.play("idle")
 	pass
 
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

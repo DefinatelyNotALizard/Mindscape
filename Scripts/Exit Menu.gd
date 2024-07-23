@@ -5,7 +5,7 @@ var Indexposition = 1
 
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_released("ui_left"):
 		if Indexposition == 1:
 			Indexposition = 0

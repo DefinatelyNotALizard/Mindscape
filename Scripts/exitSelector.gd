@@ -8,7 +8,7 @@ var speed = 1600
 var velocity = Vector2()
 #onready var sprite = get_node("selector")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#left and right
 	velocity.x = 0
 	velocity.y = 0

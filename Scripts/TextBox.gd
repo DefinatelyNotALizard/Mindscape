@@ -20,7 +20,7 @@ func _ready():
 	hide_textbox()
 	#add_text('Welcome Grub, your adventure begins here, this will not be easy (btw this is placeholder text)')
 
-func _process(delta):
+func _process(_delta):
 	match current_state:
 		State.READY:
 			pass

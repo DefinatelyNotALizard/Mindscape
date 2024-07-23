@@ -8,9 +8,13 @@ extends Sprite
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	self.visible = true
+	self.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(_delta):
+	if Globals.nearby_object != 'void':
+		self.visible = true
+	else:
+		self.visible = false
+
