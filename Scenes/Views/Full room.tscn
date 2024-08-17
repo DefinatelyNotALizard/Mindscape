@@ -1,0 +1,134 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Scripts/PC.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/clock.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Drawers.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Objects/coffee table/png/coffee table.png" type="Texture" id=7]
+[ext_resource path="res://assets/Objects/PC desk/png/PCdeskRight.png" type="Texture" id=8]
+[ext_resource path="res://assets/Objects/PC desk/png/PCdeskLeft.png" type="Texture" id=9]
+[ext_resource path="res://assets/walls/png/wall-lines.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Safe.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Bed.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Vent.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Radio.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/PC.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Meds.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Book.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Phone.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Bookshelf.tscn" type="PackedScene" id=20]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 13.9045, 1.13784 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.18195, 4.20098 )
+
+[node name="Full room" type="StaticBody2D"]
+
+[node name="clock" parent="." instance=ExtResource( 2 )]
+position = Vector2( 84.6397, -33.2362 )
+
+[node name="Bed" parent="." instance=ExtResource( 12 )]
+position = Vector2( 105.514, -26.2622 )
+
+[node name="Drawers" parent="." instance=ExtResource( 3 )]
+position = Vector2( 59.1037, -41.8504 )
+
+[node name="Vent" parent="." instance=ExtResource( 13 )]
+position = Vector2( -103.416, -45.3895 )
+
+[node name="Radio" parent="." instance=ExtResource( 14 )]
+position = Vector2( 61.625, -58.2035 )
+z_index = 1
+
+[node name="Med desk" type="StaticBody2D" parent="."]
+position = Vector2( 90, 10 )
+
+[node name="Left" type="Sprite" parent="Med desk"]
+position = Vector2( -5, 1 )
+texture = ExtResource( 9 )
+
+[node name="Right" type="Sprite" parent="Med desk"]
+position = Vector2( 0, 1 )
+texture = ExtResource( 8 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Med desk"]
+visible = false
+position = Vector2( 0.140305, -2.36405 )
+scale = Vector2( 1, 0.985309 )
+polygon = PoolVector2Array( -11.77, -1.52556, 6.98115, -1.5759, 9.03126, 3.6045, -14.2007, 3.45869 )
+
+[node name="StaticBody2D" parent="Med desk" instance=ExtResource( 16 )]
+position = Vector2( -3.03027, -4.29391 )
+
+[node name="Book desk" type="StaticBody2D" parent="."]
+position = Vector2( -90, 0 )
+
+[node name="Left" type="Sprite" parent="Book desk"]
+position = Vector2( -10, 1 )
+texture = ExtResource( 9 )
+
+[node name="Right" type="Sprite" parent="Book desk"]
+position = Vector2( 0, 1 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" parent="Book desk" instance=ExtResource( 17 )]
+position = Vector2( -5.83855, -1.98885 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Book desk"]
+visible = false
+position = Vector2( 0, -2.36405 )
+scale = Vector2( 1, 0.985309 )
+polygon = PoolVector2Array( -18.125, -1.50176, 8.12501, -1.42984, 9.03126, 3.6045, -19.4687, 3.31682 )
+
+[node name="PC desk" type="StaticBody2D" parent="."]
+position = Vector2( 0, -42.7 )
+
+[node name="Left" type="Sprite" parent="PC desk"]
+position = Vector2( -10, 1 )
+texture = ExtResource( 9 )
+
+[node name="Right" type="Sprite" parent="PC desk"]
+position = Vector2( 10, 1 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PC desk"]
+visible = false
+position = Vector2( 0, -3 )
+shape = SubResource( 1 )
+
+[node name="cofee table" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="cofee table"]
+position = Vector2( 33.2279, -40.9125 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cofee table"]
+visible = false
+position = Vector2( 39.5204, -48.8839 )
+shape = SubResource( 2 )
+
+[node name="Lines" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Lines"]
+scale = Vector2( 0.355, 0.355 )
+texture = ExtResource( 10 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lines"]
+visible = false
+polygon = PoolVector2Array( -113.13, -51.2706, 113.446, -51.2456, 117.214, -51.2331, 125.919, -5.68437, 125.919, 37.6979, 131.425, 37.8648, 131.258, -76.7646, -132.039, -76.7646, -131.872, 37.531, -126.199, 37.8648, -125.621, -6.38536, -116.873, -51.25 )
+
+[node name="Bookshelf" parent="." instance=ExtResource( 20 )]
+position = Vector2( -72.7238, -43.7388 )
+
+[node name="PC" parent="." instance=ExtResource( 15 )]
+position = Vector2( -0.99971, -47.5806 )
+z_index = 1
+script = ExtResource( 1 )
+
+[node name="Phone" parent="." instance=ExtResource( 18 )]
+position = Vector2( 33.2279, -46.7126 )
+z_index = 1
+
+[node name="Safe" parent="." instance=ExtResource( 11 )]
+position = Vector2( -38.7155, -39.2773 )

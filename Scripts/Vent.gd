@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends StaticBody2D
 
 const MINIMUM_DISTANCE = Globals.ACTIVATION_DISTANCE
 
@@ -15,13 +15,13 @@ func _process(delta):
 	if (playerNode.global_position.x - self.global_position.x < MINIMUM_DISTANCE and playerNode.global_position.x - self.global_position.x > MINIMUM_DISTANCE * (-1)) and (playerNode.global_position.y - self.global_position.y < MINIMUM_DISTANCE and playerNode.global_position.y - self.global_position.y > MINIMUM_DISTANCE * (-1)):
 		_player_near()
 	else:
-		if Globals.nearby_object == 'Safe':
+		if Globals.nearby_object == 'Vent':
 			Globals.nearby_object = 'void'
-	if Globals.interacting == 1 and Globals.nearby_object == 'Safe':
+	if Globals.interacting == 1 and Globals.nearby_object == 'Vent':
 		_trigger_interact()
 
 func _player_near():
-	Globals.nearby_object = 'Safe'
+	Globals.nearby_object = 'Vent'
 
 func _trigger_interact():
 	if state == 0:

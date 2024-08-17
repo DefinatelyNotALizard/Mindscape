@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Objects/Vent/png/ventSheet.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Vent.gd" type="Script" id=2]
+[ext_resource path="res://animations/Vent/Closed.tres" type="Animation" id=3]
+[ext_resource path="res://animations/Vent/Open.tres" type="Animation" id=4]
+
+[node name="Vent" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Closed = ExtResource( 3 )
+anims/Open = ExtResource( 4 )

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const MINIMUM_DISTANCE = Globals.ACTIVATION_DISTANCE
 
-onready var playerNode = get_node('../player')
+onready var playerNode = get_node('../../player')
 
 
 var state = 0

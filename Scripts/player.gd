@@ -36,8 +36,12 @@ func _physics_process(_delta: float) -> void:
 
 
 func _process(delta):
-	if Input.is_action_pressed("interact") and Globals.nearby_object != 'void':
+	if Input.is_action_just_pressed("interact") and Globals.nearby_object != 'void':
 		Globals.interacting = 1
+	if Globals.currentView == 'full':
+		self.visible = true
+	else:
+		self.visible = false
 		
 func _ready():
 	$AnimationPlayer.play("idle")

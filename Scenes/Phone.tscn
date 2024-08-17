@@ -23,7 +23,7 @@ anims/ringing = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2( -0.52169, 0.428577 )
+position = Vector2( -0.565883, -0.632083 )
 shape = SubResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

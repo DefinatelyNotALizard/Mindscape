@@ -18,7 +18,7 @@ var current_state = State.READY
 func _ready():
 
 	hide_textbox()
-	#add_text('Welcome Grub, your adventure begins here, this will not be easy (btw this is placeholder text)')
+	add_text('Welcome Grub, your adventure begins here, this will not be easy (btw this is placeholder text)')
 
 func _process(_delta):
 	match current_state:
@@ -27,7 +27,9 @@ func _process(_delta):
 		State.READING:
 			pass
 		State.FINISHED:
-			pass
+			if Input.is_action_pressed("UI_Down") or Input.is_action_pressed("ui_cancel"):
+				hide_textbox()
+				change_state(State.READY)
 
 func hide_textbox():
 	main_text.text = ''
